@@ -23,12 +23,7 @@ public class ScheduleListActivity extends ListActivity {
         List<ScheduleEntry> schedule = (List<ScheduleEntry>)
                 getIntent().getSerializableExtra("scheduleList");
 
-        List<String> mStrings = new LinkedList<String>();
-        for(ScheduleEntry entry: schedule) {
-            mStrings.add(entry.toString());
-        }
-        setListAdapter(new ArrayAdapter<String>(this,
-                android.R.layout.simple_list_item_1, mStrings));
+        setListAdapter(new ScheduleListAdapter(this, schedule));
         getListView().setTextFilterEnabled(true);
     }
 }

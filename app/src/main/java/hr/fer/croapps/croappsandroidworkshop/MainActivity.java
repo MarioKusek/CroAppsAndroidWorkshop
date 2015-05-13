@@ -10,6 +10,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 
+import java.util.LinkedList;
 import java.util.List;
 
 import hr.fer.croapps.croappsandroidworkshop.net.HttpScheduleReader;
@@ -47,6 +48,7 @@ public class MainActivity extends ActionBarActivity {
                 protected void onPostExecute(List<ScheduleEntry> result) {
                     if(result != null) {
                         Intent intent = new Intent(MainActivity.this, ScheduleListActivity.class);
+                        intent.putExtra("scheduleList", (LinkedList<ScheduleEntry>)result);
                         startActivity(intent);
                     }
                 }

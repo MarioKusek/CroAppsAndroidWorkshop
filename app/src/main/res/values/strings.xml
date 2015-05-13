@@ -6,5 +6,6 @@
     <string name="action_settings">Settings</string>
     <string name="btn_fetch_text">Fetch</string>
     <string name="title_activity_second">Second Activity</string>
+    <string name="title_activity_schedule_list">ScheduleListActivity</string>
 
 </resources>

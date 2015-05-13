@@ -22,7 +22,7 @@ public class MainActivity extends ActionBarActivity {
             @Override
             public void onClick(View v) {
                 Log.d("SCHEDULE", "Button fetch clicked!");
-                Intent intent = new Intent(MainActivity.this, SecondActivity.class);
+                Intent intent = new Intent(MainActivity.this, ScheduleListActivity.class);
                 startActivity(intent);
             }
         });

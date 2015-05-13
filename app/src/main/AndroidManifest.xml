@@ -20,6 +20,10 @@
             android:name=".SecondActivity"
             android:label="@string/title_activity_second" >
         </activity>
+        <activity
+            android:name=".ScheduleListActivity"
+            android:label="@string/title_activity_schedule_list" >
+        </activity>
     </application>
 
 </manifest>

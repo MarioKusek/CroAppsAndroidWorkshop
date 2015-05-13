@@ -20,6 +20,7 @@ android {
 }
 
 dependencies {
+    compile 'net.sourceforge.htmlcleaner:htmlcleaner:2.10'
     compile fileTree(dir: 'libs', include: ['*.jar'])
     compile 'com.android.support:appcompat-v7:22.1.1'
 }

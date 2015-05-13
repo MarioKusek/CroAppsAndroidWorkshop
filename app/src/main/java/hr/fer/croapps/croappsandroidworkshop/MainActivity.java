@@ -12,6 +12,9 @@ import android.widget.Button;
 
 import java.util.List;
 
+import hr.fer.croapps.croappsandroidworkshop.net.HttpScheduleReader;
+import hr.fer.croapps.croappsandroidworkshop.net.ScheduleEntry;
+
 
 public class MainActivity extends ActionBarActivity {
 
@@ -31,18 +34,21 @@ public class MainActivity extends ActionBarActivity {
     }
 
     protected void fetchData() {
-        AsyncTask<Void, Void, List<String>> task =
-            new AsyncTask<Void, Void, List<String>>() {
+        AsyncTask<Void, Void, List<ScheduleEntry>> task =
+            new AsyncTask<Void, Void, List<ScheduleEntry>>() {
                 @Override
-                protected List<String> doInBackground(Void... params) {
-                    // TODO network communication
-                    return null;
+                protected List<ScheduleEntry> doInBackground(Void... params) {
+                    HttpScheduleReader reader = new HttpScheduleReader();
+                    reader.fetchSchedule();
+                    return reader.getList();
                 }
 
                 @Override
-                protected void onPostExecute(List<String> result) {
-                    Intent intent = new Intent(MainActivity.this, ScheduleListActivity.class);
-                    startActivity(intent);
+                protected void onPostExecute(List<ScheduleEntry> result) {
+                    if(result != null) {
+                        Intent intent = new Intent(MainActivity.this, ScheduleListActivity.class);
+                        startActivity(intent);
+                    }
                 }
             };
 

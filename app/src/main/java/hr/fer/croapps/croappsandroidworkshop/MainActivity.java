@@ -1,6 +1,7 @@
 package hr.fer.croapps.croappsandroidworkshop;
 
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -8,6 +9,8 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+
+import java.util.List;
 
 
 public class MainActivity extends ActionBarActivity {
@@ -22,14 +25,32 @@ public class MainActivity extends ActionBarActivity {
             @Override
             public void onClick(View v) {
                 Log.d("SCHEDULE", "Button fetch clicked!");
-                Intent intent = new Intent(MainActivity.this, ScheduleListActivity.class);
-                startActivity(intent);
+                fetchData();
             }
         });
     }
 
+    protected void fetchData() {
+        AsyncTask<Void, Void, List<String>> task =
+            new AsyncTask<Void, Void, List<String>>() {
+                @Override
+                protected List<String> doInBackground(Void... params) {
+                    // TODO network communication
+                    return null;
+                }
 
-    @Override
+                @Override
+                protected void onPostExecute(List<String> result) {
+                    Intent intent = new Intent(MainActivity.this, ScheduleListActivity.class);
+                    startActivity(intent);
+                }
+            };
+
+        task.execute();
+    }
+
+
+        @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_main, menu);

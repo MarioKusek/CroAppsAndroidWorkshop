@@ -4,5 +4,6 @@
     <string name="app_name">CroAppsAndroidWorkshop</string>
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
+    <string name="btn_fetch_text">Fetch</string>
 
 </resources>
